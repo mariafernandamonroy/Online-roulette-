@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="online-roulette" target="11" />
+      <module name="Spring-Boot-Init" target="11" />
+      <module name="Spring-Boot-Init-2" target="11" />
+      <module name="Spring-Boot-Init-2.main" target="11" />
+      <module name="Spring-Boot-Init-2.test" target="11" />
+      <module name="Spring-Boot-Init.main" target="11" />
+      <module name="Spring-Boot-Init.test" target="11" />
+      <module name="Spring-Boot-MongoDB" target="11" />
+      <module name="Spring-Boot-Redis" target="11" />
+      <module name="Spring-Boot-Redis-v2" target="11" />
+      <module name="Spring-Boot-Redis-v2.main" target="11" />
+      <module name="Spring-Boot-Redis-v2.test" target="11" />
+      <module name="Spring-Boot-Redis.main" target="11" />
+      <module name="Spring-Boot-Redis.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

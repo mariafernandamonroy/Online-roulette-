@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init-2.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Init.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis-v2.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Spring-Boot-Redis.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/online-roulette/online-roulette.iml" filepath="$PROJECT_DIR$/online-roulette/online-roulette.iml" />
+    </modules>
+  </component>
+</project>
