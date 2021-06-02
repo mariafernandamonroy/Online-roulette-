@@ -16,6 +16,7 @@ import java.util.Optional;
 public class RouletteController {
     @Autowired
     private RouletteRepository rouletteRepository;
+    private UserRepository userRepository;
     @GetMapping("/")
     public String homePage(){
         return "HomePage";
@@ -25,12 +26,6 @@ public class RouletteController {
         roulette.setId(id);
         return rouletteRepository.save(roulette);
     }
-    //-------------------
-    @GetMapping(value = "/roulette") // BORRAR ESTE MÉTODO
-    public List<Roulette> findProducts(){
-        return rouletteRepository.findAll();
-    }
-    //-------------------
     @GetMapping(value = "/roulette/open-roulette")
     public String openRoulette(@RequestParam(value = "id") String id,
                                Roulette roulette){
@@ -47,20 +42,35 @@ public class RouletteController {
         }
         return roulletteId;
     }
+//    @PostMapping(value = "/roulette/new-user")
+//    public User createRoullete(@RequestParam("userId") String userId,
+//                               @RequestParam("credit") Double credit,
+//                               User user){
+//        user.setUserId(userId);
+//        return userRepository.save(user);
+//    }
+
     @PutMapping(value ="/roulette/{id}/bets")
     public Roulette betToRoulette(  @PathVariable("id") String id,
+                                    @RequestParam("userId") String userId,
+                                    @RequestParam("credit") Double credit,
                                     @RequestParam("betNumberOrColor") String betNumberOrColor,
                                     @RequestParam("betAmount") Double betAmount,
                                     BetElement betElement,
+                                    User user,
                                     Roulette roulette
-    ){
+    ){  roulette.setId(id);
+
+        Map<String, String> bets = user.getBets();
+        Map<String, String> users = roulette.getUsers();
+        user.setUserId(userId);
+        user.setCredit(credit);
         betElement.setBetNumberOrColor(betNumberOrColor);
         betElement.setBetAmount(betAmount);
-        Map<String, String> bets = roulette.getBets();
         bets.put("betNumberOrColor",betNumberOrColor);
         bets.put("betAmount",betAmount.toString());
-        roulette.setId(id);
-        roulette.setBets(bets);
+        user.setBets(bets);
+
         return roulette;
     }
 }
