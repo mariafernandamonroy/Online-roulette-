@@ -1,39 +1,64 @@
 package com.roulette.masiv.onlineroulette;
 
+import com.sun.source.tree.PackageTree;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@Validated
 public class RouletteController {
     @Autowired
     private RouletteRepository rouletteRepository;
-    @PostMapping("/")
+    @GetMapping("/")
     public String homePage(){
         return "HomePage";
     }
-    @GetMapping("/bets-roulette")
-    public Roulette createRoulette(@RequestBody final String rouletteId){
-        rouletteRepository.save(rouletteId);
+    @PostMapping(value = "/roulette/new-roulette")
+    public Roulette createRoullete(@RequestParam("id") String id, Roulette roulette){
+        roulette.setId(id);
+        return rouletteRepository.save(roulette);
     }
-    public Roulette openRoulette(@RequestBody final String rouletteId){
-        rouletteRepository.findById(rouletteId).orElseGet(Roulette::new);
+    //-------------------
+    @GetMapping(value = "/roulette") // BORRAR ESTE MÉTODO
+    public List<Roulette> findProducts(){
+        return rouletteRepository.findAll();
     }
-    @GetMapping("/bets-roulette/{bet}/{betAmount}")
-
-    public Roulette betToRoulette(
-
-    ) {
-        //List<BetElement> betElements
-        rouletteRepository.saveAll()
+    //-------------------
+    @GetMapping(value = "/roulette/open-roulette/{id}")
+    public String openRoulette(@PathVariable(value = "id") Roulette roulette) {
+        String ID = roulette.getId().toString();
+        String roulletteId = "";
+        if(rouletteRepository.findById(ID).isEmpty() == Boolean.TRUE){
+            roulletteId = "Acción denegada. " +
+                    "El la ruleta con el Id especificado no se encuentra";
+        }
+        else {
+            roulette.setStatus(Boolean.TRUE);
+            String rouletteNewStatus = "Abierta";
+            roulletteId = "Acción exitosa. " +
+                    "El ID de la ruleta es:" + ID+ " y se encuentra: " + rouletteNewStatus;
+        }
+        return roulletteId;
     }
-    @GetMapping("/bets-roulette")
-    public Roulette closeBets(@RequestBody final String rouletteId){
 
-    }
-    public Roulette winningRoulette(){
-
-    }
-
+//    @PutMapping(value ="/roulette/{id}/bets")
+//    public Roulette betToRoulette(  @PathVariable("id") String id,
+//                                    @RequestParam("betNumberOrColor") String betNumberOrColor,
+//                                    @RequestParam("betAmount") Double betAmount,
+//                                    BetElement betElement,
+//                                    Roulette roulette
+//    ){  betElement.setBetNumberOrColor(betNumberOrColor);
+//        betElement.setBetAmount(betAmount);
+//        Map<String, String> bets = roulette.getBets();
+//        bets.put("betNumberOrColor",betNumberOrColor);
+//        bets.put("betAmount",betAmount.toString());
+//        roulette.setId(id);
+//        roulette.setBets(bets);
+//        return roulette;
+//    }
 }
