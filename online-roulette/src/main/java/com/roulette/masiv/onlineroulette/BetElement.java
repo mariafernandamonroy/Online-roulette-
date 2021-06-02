@@ -1,23 +1,14 @@
 package com.roulette.masiv.onlineroulette;
 
-import javax.swing.plaf.DimensionUIResource;
-
 public class BetElement {
-    private Double betNumber;
-    private String bet;
+    private String betNumberOrColor;
     private Double betAmount;
 
-    public Double getBetNumber() {
-        return betNumber;
+    public String getBetNumberOrColor() {
+        return betNumberOrColor;
     }
-    public void setBetNumber(Double betNumber) {
-        this.betNumber = betNumber;
-    }
-    public String getBet() {
-        return bet;
-    }
-    public void setBet(String bet) {
-        this.bet = bet;
+    public void setBetNumberOrColor(String betNumberOrColor) {
+        this.betNumberOrColor = betNumberOrColor;
     }
     public Double getBetAmount() {
         return betAmount;

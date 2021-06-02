@@ -4,15 +4,14 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Document
 public class Roulette {
     @Id
     private String id;
-    private String status;
-    private Map<String,List<BetElement>> bets = new HashMap<>();
+    private Boolean status;
+    private Map<String,String> bets = new HashMap<>();
 
     public String getId() {
         return id;
@@ -20,17 +19,16 @@ public class Roulette {
     public void setId(String id) {
         this.id = id;
     }
-    public String getStatus() {
+    public Boolean getStatus() {
         return status;
     }
-    public void setStatus(String status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
-    public Map<String, List<BetElement>> getBets() {
+    public Map<String, String> getBets() {
         return bets;
     }
-    public void setBets(Map<String, List<BetElement>> bets) {
+    public void setBets(Map<String, String> bets) {
         this.bets = bets;
     }
-
 }
