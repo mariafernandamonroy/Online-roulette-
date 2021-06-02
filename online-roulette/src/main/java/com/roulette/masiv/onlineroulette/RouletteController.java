@@ -4,9 +4,11 @@ import com.sun.source.tree.PackageTree;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -29,36 +31,36 @@ public class RouletteController {
         return rouletteRepository.findAll();
     }
     //-------------------
-    @GetMapping(value = "/roulette/open-roulette/{id}")
-    public String openRoulette(@PathVariable(value = "id") Roulette roulette) {
-        String ID = roulette.getId().toString();
+    @GetMapping(value = "/roulette/open-roulette")
+    public String openRoulette(@RequestParam(value = "id") String id,
+                               Roulette roulette){
         String roulletteId = "";
-        if(rouletteRepository.findById(ID).isEmpty() == Boolean.TRUE){
-            roulletteId = "Acción denegada. " +
-                    "El la ruleta con el Id especificado no se encuentra";
-        }
-        else {
+        if (rouletteRepository.findById(id).isEmpty() == Boolean.FALSE){
             roulette.setStatus(Boolean.TRUE);
             String rouletteNewStatus = "Abierta";
             roulletteId = "Acción exitosa. " +
-                    "El ID de la ruleta es:" + ID+ " y se encuentra: " + rouletteNewStatus;
+                    "El Id de la ruleta es:" + id + " y se encuentra: " + rouletteNewStatus;
+        }
+        else{
+            roulletteId = "Acción denegada. " +
+                    "El la ruleta con el Id "+ id + " no se encuentra";
         }
         return roulletteId;
     }
-
-//    @PutMapping(value ="/roulette/{id}/bets")
-//    public Roulette betToRoulette(  @PathVariable("id") String id,
-//                                    @RequestParam("betNumberOrColor") String betNumberOrColor,
-//                                    @RequestParam("betAmount") Double betAmount,
-//                                    BetElement betElement,
-//                                    Roulette roulette
-//    ){  betElement.setBetNumberOrColor(betNumberOrColor);
-//        betElement.setBetAmount(betAmount);
-//        Map<String, String> bets = roulette.getBets();
-//        bets.put("betNumberOrColor",betNumberOrColor);
-//        bets.put("betAmount",betAmount.toString());
-//        roulette.setId(id);
-//        roulette.setBets(bets);
-//        return roulette;
-//    }
+    @PutMapping(value ="/roulette/{id}/bets")
+    public Roulette betToRoulette(  @PathVariable("id") String id,
+                                    @RequestParam("betNumberOrColor") String betNumberOrColor,
+                                    @RequestParam("betAmount") Double betAmount,
+                                    BetElement betElement,
+                                    Roulette roulette
+    ){
+        betElement.setBetNumberOrColor(betNumberOrColor);
+        betElement.setBetAmount(betAmount);
+        Map<String, String> bets = roulette.getBets();
+        bets.put("betNumberOrColor",betNumberOrColor);
+        bets.put("betAmount",betAmount.toString());
+        roulette.setId(id);
+        roulette.setBets(bets);
+        return roulette;
+    }
 }
