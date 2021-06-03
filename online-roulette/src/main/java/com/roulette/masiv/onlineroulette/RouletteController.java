@@ -1,24 +1,19 @@
 package com.roulette.masiv.onlineroulette;
 
-import com.sun.source.tree.PackageTree;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MissingPathVariableException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @Validated
 public class RouletteController {
     @Autowired
     private RouletteRepository rouletteRepository;
-    private UserRepository userRepository;
     @GetMapping("/")
     public String homePage(){
+
         return "HomePage";
     }
     @PostMapping(value = "/roulette/new-roulette")
@@ -29,7 +24,7 @@ public class RouletteController {
     @GetMapping(value = "/roulette/open-roulette")
     public String openRoulette(@RequestParam(value = "id") String id,
                                Roulette roulette){
-        String roulletteId = "";
+        String roulletteId = " ";
         if (rouletteRepository.findById(id).isEmpty() == Boolean.FALSE){
             roulette.setStatus(Boolean.TRUE);
             String rouletteNewStatus = "Abierta";
@@ -42,35 +37,33 @@ public class RouletteController {
         }
         return roulletteId;
     }
-//    @PostMapping(value = "/roulette/new-user")
-//    public User createRoullete(@RequestParam("userId") String userId,
-//                               @RequestParam("credit") Double credit,
-//                               User user){
-//        user.setUserId(userId);
-//        return userRepository.save(user);
-//    }
-
-    @PutMapping(value ="/roulette/{id}/bets")
-    public Roulette betToRoulette(  @PathVariable("id") String id,
-                                    @RequestParam("userId") String userId,
-                                    @RequestParam("credit") Double credit,
-                                    @RequestParam("betNumberOrColor") String betNumberOrColor,
-                                    @RequestParam("betAmount") Double betAmount,
-                                    BetElement betElement,
+    @PostMapping(value ="/roulette/{id}/bets")
+    public Roulette betToRoulette(  @PathVariable(value = "id") String id,
+                                    @RequestHeader(value = "userId") String userId,
+                                    @RequestParam(value = "credit") String credit,
+                                    @RequestParam(value = "betNumberOrColor") String betNumberOrColor,
+                                    @RequestParam(value = "betAmount") Double betAmount,
                                     User user,
                                     Roulette roulette
-    ){  roulette.setId(id);
-
-        Map<String, String> bets = user.getBets();
-        Map<String, String> users = roulette.getUsers();
-        user.setUserId(userId);
+    ){
+        roulette.setStatus(Boolean.TRUE);
+        roulette = rouletteRepository.findById(id).orElseGet(Roulette::new);
+        user.setuserId(userId);
         user.setCredit(credit);
-        betElement.setBetNumberOrColor(betNumberOrColor);
-        betElement.setBetAmount(betAmount);
-        bets.put("betNumberOrColor",betNumberOrColor);
-        bets.put("betAmount",betAmount.toString());
-        user.setBets(bets);
-
-        return roulette;
+        user.setBetNumberOrColor(betNumberOrColor);
+        user.setBetAmount(betAmount);
+        List<User> users = roulette.getUser();
+        users.add(user);
+        roulette.setUser(users);
+        return rouletteRepository.save(roulette);
     }
+
+
+
+//        Double doubleCredit = Double.parseDouble(credit);
+    //        if(betAmount<doubleCredit){
+//            credit = Double.toString(doubleCredit - betAmount);
+//        }
 }
+
+

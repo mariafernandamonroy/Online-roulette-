@@ -4,8 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2dd7fa29-9b58-4484-b01c-6ad37d01aed3" name="Default Changelist" comment="Adding complements to main">
+    <list default="true" id="0952dabc-f4a6-4c2c-8cac-dcb58cf58e44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_05_2021_04_25_p__m___Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_31_05_2021_04_25_p__m___Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-roulette/online-roulette.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/BetElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/BetElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/Roulette.java" beforeDir="false" afterPath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/Roulette.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/RouletteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/RouletteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/RouletteRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/online-roulette/src/main/java/com/roulette/masiv/onlineroulette/RouletteRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,12 +24,35 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/online-roulette" />
+  </component>
+  <component name="RunManager">
+    <configuration name="OnlineRouletteApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.roulette.masiv.onlineroulette.OnlineRouletteApplication" />
+      <module name="online-roulette" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.roulette.masiv.onlineroulette.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.OnlineRouletteApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Adding complements to main">
       <created>1622496946308</created>
