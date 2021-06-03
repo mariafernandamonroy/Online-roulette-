@@ -10,7 +10,7 @@ import java.util.List;
 public class Roulette {
     @Id
     private String id;
-    private Boolean status;
+    private Boolean status = Boolean.FALSE;
     private List<User> user = new ArrayList<>();
 
     public String getId() {
@@ -29,12 +29,10 @@ public class Roulette {
 
         this.status = status;
     }
-
     public List<User> getUser() {
 
         return user;
     }
-
     public void setUser(List<User> user) {
 
         this.user = user;
